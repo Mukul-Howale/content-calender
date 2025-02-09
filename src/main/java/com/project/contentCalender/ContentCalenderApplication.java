@@ -8,7 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class ContentCalenderApplication {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext context = SpringApplication.run(ContentCalenderApplication.class, args);
+		SpringApplication.run(ContentCalenderApplication.class, args);
 	}
 
 }
