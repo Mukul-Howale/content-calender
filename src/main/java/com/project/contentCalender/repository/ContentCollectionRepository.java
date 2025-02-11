@@ -1,6 +1,7 @@
 package com.project.contentCalender.repository;
 
 import com.project.contentCalender.model.Content;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Repository;
