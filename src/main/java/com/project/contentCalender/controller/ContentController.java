@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,10 +18,13 @@ public class ContentController {
 
     private final ContentCollectionRepository contentCollectionRepository;
 
-    @GetMapping("/content")
+    @GetMapping("")
     public List<Content> findAll(){
         return contentCollectionRepository.getContent();
     }
 
-    public Content 
+    public Content findById(Integer id){
+        Optional<Content> content = contentCollectionRepository.findById(id);
+        return content.orElse(null);
+    }
 }
