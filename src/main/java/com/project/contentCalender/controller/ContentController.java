@@ -28,8 +28,18 @@ public class ContentController {
                         HttpStatus.NOT_FOUND, "Content not found"));
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    public void createContent(@RequestBody Content content){
-        contentCollectionRepository.createContent(content);
+    public void create(@RequestBody Content content){
+        contentCollectionRepository.save(content);
     }
+
+    @PutMapping("{id}")
+    public void update(@RequestBody Content content, @PathVariable Integer id){
+        if(!contentCollectionRepository.existsById(id))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found");
+        contentCollectionRepository.save(content);
+    }
+
+
 }
