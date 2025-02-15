@@ -33,3 +33,6 @@ Content-Type: application/json
   "dateUpdated": null,
   "url": ""
 }
+
+### Deleting existing content
+DELETE http://localhost:8080/api/content/1

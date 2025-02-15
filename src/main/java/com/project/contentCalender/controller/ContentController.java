@@ -34,6 +34,7 @@ public class ContentController {
         contentCollectionRepository.save(content);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("{id}")
     public void update(@RequestBody Content content, @PathVariable Integer id){
         if(!contentCollectionRepository.existsById(id))
@@ -41,5 +42,11 @@ public class ContentController {
         contentCollectionRepository.save(content);
     }
 
-
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable Integer id){
+        if(!contentCollectionRepository.existsById(id))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found");
+        contentCollectionRepository.delete(id);
+    }
 }
